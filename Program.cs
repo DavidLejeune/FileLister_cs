@@ -2,10 +2,25 @@
 using System;
 using System.Linq;
 using System.IO;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+class FileData
+{
+    public string Id { get; set; }
+    public string DateCreated { get; set; }
+    public string file_title { get; set; }
+    public string file_type { get; set; }
+
+}
+
 class Program
 {
     static void Main()
     {
+        // inits
+        int ID_int = 0;
+        List<string> _data = new List<string>();
+
 
         Console.WriteLine("FILE LISTER");
         Console.WriteLine("===========");
@@ -14,9 +29,14 @@ class Program
         string[] files_list = Directory.GetFiles("./", "*.*", SearchOption.AllDirectories);
 
 
+
+
         // loop array to get file info of files
         foreach (string file_name in files_list)
         {
+            ID_int += 1;
+
+
             // file_name
             Console.WriteLine(file_name);
             FileInfo file_info = new FileInfo(file_name);
@@ -37,6 +57,22 @@ class Program
             // file type
             string file_type = Path.GetExtension(file_name);
             Console.WriteLine(file_type);
+
+
+
+            FileData file_data = new FileData()
+            {
+                Id = ID_int,
+                DateCreated = dt_created,
+                Author = author_name,
+                file_title = file_title,
+                file_type = file_type
+            };
+
+
+            string stringjson = JsonConvert.SerializeObject(file_data);
+            Console.WriteLine(stringjson);
+            File.WriteAllText(@".\path.json", stringjson);
         }
     }
 }
