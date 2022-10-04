@@ -6,10 +6,12 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 class FileData
 {
-    public string Id { get; set; }
-    public string DateCreated { get; set; }
-    public string file_title { get; set; }
-    public string file_type { get; set; }
+    public int Id { get; set; }
+    public DateTime DateCreated { get; set; }
+
+    public string Author { get; set; }
+    public string FileTitle { get; set; }
+    public string FileType { get; set; }
 
 }
 
@@ -19,10 +21,11 @@ class Program
     {
         // inits
         int ID_int = 0;
-        List<string> _data = new List<string>();
+        string json_path = "./file_list.json";
+        using (FileStream fs = File.Create(json_path)) ;
 
 
-        Console.WriteLine("FILE LISTER");
+            Console.WriteLine("FILE LISTER");
         Console.WriteLine("===========");
 
         // search path and put into array
@@ -65,14 +68,15 @@ class Program
                 Id = ID_int,
                 DateCreated = dt_created,
                 Author = author_name,
-                file_title = file_title,
-                file_type = file_type
+                FileTitle = file_title,
+                FileType = file_type
             };
 
 
+            Console.WriteLine("Exporting data ...");
             string stringjson = JsonConvert.SerializeObject(file_data);
             Console.WriteLine(stringjson);
-            File.WriteAllText(@".\path.json", stringjson);
+            File.AppendAllText(json_path, stringjson);
         }
     }
 }

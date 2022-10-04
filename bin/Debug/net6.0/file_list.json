@@ -1,0 +1,43 @@
+{
+    "Id": 1,
+    "DateCreated": "2022-10-04T09:05:06.769374-08:00",
+    "Author": "MSI\\David",
+    "FileTitle": "FileLister.deps.json",
+    "FileType": ".json"
+}{
+    "Id": 2,
+    "DateCreated": "2022-10-04T09:05:06.9053964-08:00",
+    "Author": "MSI\\David",
+    "FileTitle": "FileLister.dll",
+    "FileType": ".dll"
+}{
+    "Id": 3,
+    "DateCreated": "2022-10-04T09:05:06.7229443-08:00",
+    "Author": "MSI\\David",
+    "FileTitle": "FileLister.exe",
+    "FileType": ".exe"
+}{
+    "Id": 4,
+    "DateCreated": "2022-10-04T09:05:06.9093758-08:00",
+    "Author": "MSI\\David",
+    "FileTitle": "FileLister.pdb",
+    "FileType": ".pdb"
+}{
+    "Id": 5,
+    "DateCreated": "2022-10-04T09:05:06.8093753-08:00",
+    "Author": "MSI\\David",
+    "FileTitle": "FileLister.runtimeconfig.json",
+    "FileType": ".json"
+}{
+    "Id": 6,
+    "DateCreated": "2022-10-04T10:13:26.7523642-08:00",
+    "Author": "MSI\\David",
+    "FileTitle": "file_list.json",
+    "FileType": ".json"
+}{
+    "Id": 7,
+    "DateCreated": "2022-10-04T09:55:18.938284-08:00",
+    "Author": "MSI\\David",
+    "FileTitle": "Newtonsoft.Json.dll",
+    "FileType": ".dll"
+}
