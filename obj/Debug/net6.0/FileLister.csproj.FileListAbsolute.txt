@@ -1,0 +1,15 @@
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\bin\Debug\net6.0\FileLister.exe
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\bin\Debug\net6.0\FileLister.deps.json
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\bin\Debug\net6.0\FileLister.runtimeconfig.json
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\bin\Debug\net6.0\FileLister.dll
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\bin\Debug\net6.0\FileLister.pdb
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\obj\Debug\net6.0\FileLister.csproj.AssemblyReference.cache
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\obj\Debug\net6.0\FileLister.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\obj\Debug\net6.0\FileLister.AssemblyInfoInputs.cache
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\obj\Debug\net6.0\FileLister.AssemblyInfo.cs
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\obj\Debug\net6.0\FileLister.csproj.CoreCompileInputs.cache
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\obj\Debug\net6.0\FileLister.dll
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\obj\Debug\net6.0\refint\FileLister.dll
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\obj\Debug\net6.0\FileLister.pdb
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\obj\Debug\net6.0\FileLister.genruntimeconfig.cache
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\obj\Debug\net6.0\ref\FileLister.dll
