@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.Data.SqlClient;
 using static System.Net.Mime.MediaTypeNames;
 using System.Data;
+using System.Text;
 
 class FileData
 {
@@ -95,15 +96,27 @@ class Program
 
 
             // SqlConnection conn = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=SharedFilesDB;Trusted_Connection=True;");
-            SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Database=SharedFilesDB;Trusted_Connection=True;");
-            string sql = "insert into SharedFiles (FileName, FilePath, DateTimeCreated, Author, FileType) values (@file_title, @file_path, @dt_created, @dt_modified, @author_name, @file_type)";
+            //SqlConnection conn = new("Server=localhost\\SQLEXPRESS;Database=SharedFilesDB;Trusted_Connection=True;");
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+                "Data Source = localhost\\SQLEXPRESS;" +
+                "Initial Catalog=SharedFilesDB;" +
+                "User ID=David;" +
+                "Password=Lucian0661;";
+         
+
+
+
 
 
             try
             {
                 conn.Open();
-                Console.WriteLine("Connection open");
-                SqlCommand cmd = new SqlCommand(sql, conn);
+                Console.WriteLine("Connection Established!");
+                string sql = "insert into SharedFiles (FileName, FilePath, DateTimeCreated, , DateTimeModified, Author, FileType) values (@file_title, @file_path, @dt_created, @dt_modified, @author_name, @file_type)";
+
+                SqlCommand cmd = new(sql, conn);
 
                 cmd.Parameters.Add("@file_title", SqlDbType.VarChar);
                 cmd.Parameters["@file_title"].Value = file_title;
@@ -124,8 +137,26 @@ class Program
                 cmd.Parameters["@file_type"].Value = file_type;
 
                 Console.WriteLine(sql);
+
+
+                string sql1 = "INSERT INTO [SharedFiles] ([FileName], [FilePath], [DateTimeCreated], [DateTimeModified], [Author], [FileType]) VALUES (@file_title, @file_path, @dt_created, @dt_modified, @author_name, @file_type)";
+                SqlCommand sqlCmd1 = new(sql1 , conn);
+                
+                sqlCmd1.Parameters.AddWithValue("@file_title", file_title);
+                sqlCmd1.Parameters.AddWithValue("@file_path", file_path);
+                sqlCmd1.Parameters.AddWithValue("@dt_created", dt_created);
+                sqlCmd1.Parameters.AddWithValue("@dt_modified", dt_modified);
+                sqlCmd1.Parameters.AddWithValue("@author_name", author_name);
+                sqlCmd1.Parameters.AddWithValue("@file_type", file_type);
+                sqlCmd1.ExecuteNonQuery();
+                Console.WriteLine("sqlCmd1 executed");
+
+
+
                 cmd.ExecuteNonQuery();
             }
+
+
             catch (System.Data.SqlClient.SqlException ex)
             {
                 string msg = "Insert Error:";
@@ -136,6 +167,8 @@ class Program
                 Console.WriteLine("Connection closed");
                 conn.Close();
             }
+
+
 
 
 
