@@ -9,8 +9,8 @@ class FileData
     public int Id { get; set; }
     public string FileName { get; set; }
     public string FilePath { get; set; }
-    public DateTime DateCreated { get; set; }
-    public DateTime DateModified { get; set; }
+    public DateTime DateTimeCreated { get; set; }
+    public DateTime DateTimeModified { get; set; }
     public string Author { get; set; }
     public string FileType { get; set; }
 
@@ -77,8 +77,8 @@ class Program
                 Id = ID_int,
                 FileName = file_title,
                 FilePath = file_path,
-                DateCreated = dt_created,
-                DateModified = dt_modified,
+                DateTimeCreated = dt_created,
+                DateTimeModified = dt_modified,
                 Author = author_name,
                 FileType = file_type
             };
