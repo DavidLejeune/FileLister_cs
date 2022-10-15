@@ -7,9 +7,11 @@ using Newtonsoft.Json;
 class FileData
 {
     public int Id { get; set; }
+    public string FileName { get; set; }
+    public string FilePath { get; set; }
     public DateTime DateCreated { get; set; }
+    public DateTime DateModified { get; set; }
     public string Author { get; set; }
-    public string FileTitle { get; set; }
     public string FileType { get; set; }
 
 }
@@ -31,7 +33,7 @@ class Program
         watch.Start();
 
         // search path and put into array
-        string[] files_list = Directory.GetFiles("./", "*.*", SearchOption.AllDirectories);
+        string[] files_list = Directory.GetFiles("C:\\Users\\David\\Documents\\Projects\\dotnetcore\\FileShareLocation", "*.*", SearchOption.AllDirectories);
 
         // loop array to get file info of files
         foreach (string file_name in files_list)
@@ -45,6 +47,10 @@ class Program
 
             // date created
             DateTime dt_created = file_info.CreationTime;
+
+            // date created
+            DateTime dt_modified = file_info.LastWriteTime;
+
             //Console.WriteLine(dt_created);
 
 
@@ -56,6 +62,10 @@ class Program
             string file_title =  Path.GetFileName(file_name);
             //Console.WriteLine(file_title);
 
+
+            // path
+            string file_path = Path.GetFullPath(file_name);
+
             // file type
             string file_type = Path.GetExtension(file_name);
             //Console.WriteLine(file_type);
@@ -65,9 +75,11 @@ class Program
             FileData file_data = new FileData()
             {
                 Id = ID_int,
+                FileName = file_title,
+                FilePath = file_path,
                 DateCreated = dt_created,
+                DateModified = dt_modified,
                 Author = author_name,
-                FileTitle = file_title,
                 FileType = file_type
             };
 
