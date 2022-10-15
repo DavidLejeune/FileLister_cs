@@ -15,3 +15,9 @@ C:\Users\David\Documents\Projects\dotnetcore\FileLister\obj\Debug\net6.0\FileLis
 C:\Users\David\Documents\Projects\dotnetcore\FileLister\obj\Debug\net6.0\ref\FileLister.dll
 C:\Users\David\Documents\Projects\dotnetcore\FileLister\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\David\Documents\Projects\dotnetcore\FileLister\obj\Debug\net6.0\FileLister.csproj.CopyComplete
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\David\Documents\Projects\dotnetcore\FileLister\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

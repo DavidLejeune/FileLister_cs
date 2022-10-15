@@ -4,6 +4,10 @@ using System.Linq;
 using System.IO;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using System.Data.SqlClient;
+using static System.Net.Mime.MediaTypeNames;
+using System.Data;
+
 class FileData
 {
     public int Id { get; set; }
@@ -88,6 +92,53 @@ class Program
             string stringjson = JsonConvert.SerializeObject(file_data);
             //Console.WriteLine(stringjson);
             File.AppendAllText(json_path, stringjson);
+
+
+            // SqlConnection conn = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=SharedFilesDB;Trusted_Connection=True;");
+            SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Database=SharedFilesDB;Trusted_Connection=True;");
+            string sql = "insert into SharedFiles (FileName, FilePath, DateTimeCreated, Author, FileType) values (@file_title, @file_path, @dt_created, @dt_modified, @author_name, @file_type)";
+
+
+            try
+            {
+                conn.Open();
+                Console.WriteLine("Connection open");
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.Add("@file_title", SqlDbType.VarChar);
+                cmd.Parameters["@file_title"].Value = file_title;
+
+                cmd.Parameters.Add("@file_path", SqlDbType.VarChar);
+                cmd.Parameters["@file_path"].Value = file_path;
+
+                cmd.Parameters.Add("@dt_created", SqlDbType.DateTime2);
+                cmd.Parameters["@dt_created"].Value = dt_created;
+
+                cmd.Parameters.Add("@dt_modified", SqlDbType.DateTime2);
+                cmd.Parameters["@dt_modified"].Value = dt_modified;
+
+                cmd.Parameters.Add("@author_name", SqlDbType.VarChar);
+                cmd.Parameters["@author_name"].Value = author_name;
+
+                cmd.Parameters.Add("@file_type", SqlDbType.VarChar);
+                cmd.Parameters["@file_type"].Value = file_type;
+
+                Console.WriteLine(sql);
+                cmd.ExecuteNonQuery();
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                string msg = "Insert Error:";
+                msg += ex.Message;
+            }
+            finally
+            {
+                Console.WriteLine("Connection closed");
+                conn.Close();
+            }
+
+
+
         }
 
         // final output
