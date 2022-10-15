@@ -98,16 +98,14 @@ class Program
             // SqlConnection conn = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=SharedFilesDB;Trusted_Connection=True;");
             //SqlConnection conn = new("Server=localhost\\SQLEXPRESS;Database=SharedFilesDB;Trusted_Connection=True;");
 
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-                "Data Source = localhost\\SQLEXPRESS;" +
-                "Initial Catalog=SharedFilesDB;" +
-                "User ID=David;" +
-                "Password=Lucian0661;";
-         
 
 
 
+
+            string connetionString;
+            SqlConnection conn;
+            connetionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=SharedFilesDB;Trusted_Connection=True;";
+            conn = new SqlConnection(connetionString);
 
 
             try
@@ -117,6 +115,9 @@ class Program
                 string sql = "insert into SharedFiles (FileName, FilePath, DateTimeCreated, , DateTimeModified, Author, FileType) values (@file_title, @file_path, @dt_created, @dt_modified, @author_name, @file_type)";
 
                 SqlCommand cmd = new(sql, conn);
+
+                cmd.Parameters.Add("@ID_int", SqlDbType.Int);
+                cmd.Parameters["@ID_int"].Value = ID_int;
 
                 cmd.Parameters.Add("@file_title", SqlDbType.VarChar);
                 cmd.Parameters["@file_title"].Value = file_title;
@@ -139,9 +140,10 @@ class Program
                 Console.WriteLine(sql);
 
 
-                string sql1 = "INSERT INTO [SharedFiles] ([FileName], [FilePath], [DateTimeCreated], [DateTimeModified], [Author], [FileType]) VALUES (@file_title, @file_path, @dt_created, @dt_modified, @author_name, @file_type)";
+                string sql1 = "INSERT INTO [SharedFiles] ([Id] ,[FileName], [FilePath], [DateTimeCreated], [DateTimeModified], [Author], [FileType]) VALUES (@ID_int, @file_title, @file_path, @dt_created, @dt_modified, @author_name, @file_type)";
                 SqlCommand sqlCmd1 = new(sql1 , conn);
                 
+                sqlCmd1.Parameters.AddWithValue("@ID_int", ID_int);
                 sqlCmd1.Parameters.AddWithValue("@file_title", file_title);
                 sqlCmd1.Parameters.AddWithValue("@file_path", file_path);
                 sqlCmd1.Parameters.AddWithValue("@dt_created", dt_created);
